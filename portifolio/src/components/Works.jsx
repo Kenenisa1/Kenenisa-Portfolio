@@ -9,7 +9,8 @@ import { fadeIn,textVariant } from "../utils/motion"
 
 const ProjectCard = ({index, name, description,tags, image, source_code_link}) => {
  return (
-    <motion.p variants={fadeIn("up", "spring" , index* 0.5 , 0.75)}>
+    <motion.div variants={fadeIn("up", "spring" , index* 0.5 , 0.75)}>
+    <div>
       <Tilt
         options={{
           max: 45,
@@ -43,7 +44,8 @@ const ProjectCard = ({index, name, description,tags, image, source_code_link}) =
         ))}
       </div>
       </Tilt>
-    </motion.p>
+    </div>
+    </motion.div>
 )
 }
 
@@ -65,7 +67,7 @@ const Works = () => {
 
       </div>
 
-      <div>
+      <div className="mt-20 flex flex-wrap gap-7">
           {projects.map((project,index) => (
             <ProjectCard key={`project-${index}`} 
               index={index}
@@ -77,4 +79,5 @@ const Works = () => {
   )
 }
 
-export default SectionWrapper(Works, "")
+const ExperienceWithWrapper = SectionWrapper(Works, "")
+export default ExperienceWithWrapper;
