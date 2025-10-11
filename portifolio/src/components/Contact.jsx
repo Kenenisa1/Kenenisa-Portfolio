@@ -60,13 +60,15 @@ const handleSubmit = (e) => {
 
 }
    return (
-     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex overflow-hidden">
+     <div className="xl:mt-12 overflow-hidden justify-center">
         <motion.div variants={slideIn('left', "tween" , 0.2 , 1)} className=" flex-[0.75] bg-black-100 p-8 rounded-2xl">
             <p className={`${styles.heroSubText}`}>GET IN TOUCH</p>
             <h2 className={`${styles.heroHeadText}`}>Contact</h2>
         </motion.div>
 
-        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-12 gap-8">
+        <div className="flex flex-col lg:flex-row md:flex-row xl:flex-row items-center">
+
+        <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex gap-8 flex-col md:items-start md:flex-col lg:flex-col">
           <label className="flex flex-col"
           >
             <span className="text-white font-medium mb-4">Your Name</span>
@@ -75,7 +77,7 @@ const handleSubmit = (e) => {
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="Your email"
+              placeholder="Your name"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
@@ -88,7 +90,7 @@ const handleSubmit = (e) => {
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="Your emailname"
+              placeholder="Type your email here"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
@@ -102,7 +104,7 @@ const handleSubmit = (e) => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Your feedback"
+              placeholder="How do you feel?"
               className="bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium"
             />
           </label>
@@ -113,15 +115,17 @@ const handleSubmit = (e) => {
           >
             {loading ? 'sending ...' : 'send'}
           </button>
-          <motion.div 
+        </form>
+         <motion.div 
             variants={slideIn('left', "tween" , 0.2 , 1)}
             className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px] "
           >
             <EarthCanvas/>
           </motion.div>
-        </form>
+      </div>
      </div>
    )
  }
  
- export default Contact
+ const CR= SectionWrapper(Contact, "Contact")
+ export default Contact;
