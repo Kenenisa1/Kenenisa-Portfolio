@@ -143,6 +143,15 @@ const experiences = [
       "Participating in code reviews and providing constructive feedback to other developers.",
     ],
   },
+  {
+    title: "Tailwindcss",
+    icon: tailwind,
+    iconBg: "#E5DEDD",
+    points: [
+      "beautiful styling library",
+      "Better"
+    ],
+  }
 ];
 
 const testimonials = [
