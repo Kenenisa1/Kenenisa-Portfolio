@@ -1,17 +1,11 @@
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-
+import { useState, useEffect } from 'react';
 import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
-
 import { styles } from "../styles";
 import { experiences } from "../constants";
 import { textVariant } from "../utils/motion";
-import { SectionWrapper } from "../hoc";
 
-const ExperienceCard = ({ experience }) => {
+const ExperienceCard = ({ experience, VerticalTimelineElement }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{ background: "#1d1836", color: "#fff" }}
@@ -53,17 +47,47 @@ const ExperienceCard = ({ experience }) => {
 };
 
 const Experience = () => {
+  const [TimelineComponents, setTimelineComponents] = useState(null);
+
+  useEffect(() => {
+    import('react-vertical-timeline-component')
+      .then(module => {
+        setTimelineComponents({
+          VerticalTimeline: module.VerticalTimeline,
+          VerticalTimelineElement: module.VerticalTimelineElement
+        });
+      })
+      .catch(err => console.error('Failed to load timeline component', err));
+  }, []);
+
+  if (!TimelineComponents) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <div className="text-white text-lg">Loading timeline...</div>
+      </div>
+    );
+  }
+
+  const { VerticalTimeline, VerticalTimelineElement } = TimelineComponents;
+
   return (
     <>
-      <motion.div variants={textVariant}>
-        <p className={`${styles.heroSubText}`}>What I have done so far!</p>
-        <h2 className={`${styles.heroHeadText}`}>Work Experiance </h2>
-      </motion.div>
+      {/* Only changed the header section - added text-center and justify-center */}
+      <div className='flex justify-center items-center'>
+        <motion.div variants={textVariant}>
+          <p className={`${styles.heroSubText}`}>What languages I have learned so far!</p>
+          <h2 className={`${styles.heroHeadText}`}>Educational Background</h2>
+        </motion.div>
+      </div>
 
       <div className="mt-20 flex flex-col">
         <VerticalTimeline>
           {experiences.map((experience, index) => (
-            <ExperienceCard key={index} experience={experience} />
+            <ExperienceCard 
+              key={index} 
+              experience={experience} 
+              VerticalTimelineElement={VerticalTimelineElement} 
+            />
           ))}
         </VerticalTimeline>
       </div>
@@ -71,4 +95,4 @@ const Experience = () => {
   );
 };
 
-export default SectionWrapper(Experience, "work");
+export default Experience;
