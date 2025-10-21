@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { portfolio_data} from '../constants';
 
 const PortfolioAI = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,26 +11,6 @@ const PortfolioAI = () => {
   const messagesEndRef = useRef(null);
   const recognitionRef = useRef(null);
 
-  const portfolioData = {
-    name: "Kenenisa Mieso",
-    skills: ["React", "JavaScript", "Node.js", "Python", "AI/ML", "TypeScript"],
-    projects: [
-      { name: "E-Commerce Platform", description: "Full-stack e-commerce solution with React and Node.js" },
-      { name: "AI Chatbot", description: "Machine learning chatbot for customer service" },
-      { name: "Portfolio Website", description: "Modern responsive portfolio with 3D animations" }
-    ],
-    experience: [
-      { role: "Frontend Developer", company: "Tech Corp", duration: "2 years" },
-      { role: "AI Engineer", company: "AI Startup", duration: "1 year" }
-    ],
-    education: "Computer Science Degree from University Name",
-    contact: {
-      email: "your.email@example.com",
-      phone: "+1234567890",
-      linkedin: "linkedin.com/in/yourname"
-    },
-    about: "Passionate developer specializing in AI and web technologies with 3+ years of experience."
-  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -87,43 +68,49 @@ const PortfolioAI = () => {
     
     // Skills related
     if (lowerQuestion.includes('skill') || lowerQuestion.includes('what can you do') || lowerQuestion.includes('technologies')) {
-      return `I have expertise in ${portfolioData.skills.join(', ')}. I'm particularly strong in ${portfolioData.skills.slice(0, 3).join(', ')}.`;
+      return `I have expertise in ${portfolio_data.skills.join(', ')}. I'm particularly strong in ${portfolio_data.skills.slice(0, 3).join(', ')}.`;
     }
     
     // Projects related
     if (lowerQuestion.includes('project') || lowerQuestion.includes('work') || lowerQuestion.includes('build')) {
-      const projectsList = portfolioData.projects.map(proj => `${proj.name}: ${proj.description}`).join('\n');
+      const projectsList = portfolio_data.projects.map(proj => `${proj.name}: ${proj.description}`).join('\n');
       return `Here are some of my key projects:\n${projectsList}`;
     }
     
     // Experience related
     if (lowerQuestion.includes('experience') || lowerQuestion.includes('work experience') || lowerQuestion.includes('job')) {
-      const expList = portfolioData.experience.map(exp => `${exp.role} at ${exp.company} (${exp.duration})`).join('\n');
+      const expList = portfolio_data.experience.map(exp => `${exp.role} at ${exp.company} (${exp.duration})`).join('\n');
       return `My professional experience includes:\n${expList}`;
     }
     
     // Education related
-    if (lowerQuestion.includes('education') || lowerQuestion.includes('degree') || lowerQuestion.includes('study')) {
-      return `I have a ${portfolioData.edducation}.`;
+    if (lowerQuestion.includes('education') || lowerQuestion.includes('degree') || lowerQuestion.includes('study') || lowerQuestion.includes('learned') ) {
+      return `I have a ${portfolio_data.education}.`;
     }
     
+
     // Contact related
     if (lowerQuestion.includes('contact') || lowerQuestion.includes('email') || lowerQuestion.includes('phone') || lowerQuestion.includes('reach')) {
-      return `You can contact me via:\nEmail: ${portfolioData.contact.email}\nPhone: ${portfolioData.contact.phone}\nLinkedIn: ${portfolioData.contact.linkedin}`;
+      return `You can contact me via:\nEmail: ${portfolio_data.contact.email}\nPhone: ${portfolio_data.contact.phone}\nLinkedIn: ${portfolio_data.contact.linkedin}`;
     }
     
     // About related
     if (lowerQuestion.includes('about') || lowerQuestion.includes('who are you') || lowerQuestion.includes('tell me about')) {
-      return `I'm ${portfolioData.name}, ${portfolioData.about}`;
+      return `I'm ${portfolio_data.name}, ${portfolio_data.about}`;
     }
     
     // Greeting
     if (lowerQuestion.includes('hello') || lowerQuestion.includes('hi') || lowerQuestion.includes('hey')) {
-      return `Hello! I'm ${portfolioData.name}'s AI assistant. I can tell you about my skills, projects, experience, and more. What would you like to know?`;
+      return `Hello! I'm ${portfolio_data.name}'s AI assistant. I can tell you about my skills, projects, experience, and more. What would you like to know?`;
+    }
+
+    if(lowerQuestion.includes("Thank") || lowerQuestion.includes("thanks") || lowerQuestion.includes("thank you" ) || lowerQuestion.includes('bye')) {
+        return "You're welcome! If you have any more questions, feel free to ask. Have a great day!";
     }
     
     // Default response
-    return `I'm ${portfolioData.name}'s AI assistant. I can help you learn about my skills, projects, experience, education, and contact information. What specific information are you looking for?`;
+    return `I'm ${portfolio_data.name}'s AI assistant. I can help you learn about my skills, projects, experience, education, and contact information. What specific information are you looking for?`;
+
   };
 
   const handleSendMessage = async (text = input) => {
@@ -164,7 +151,7 @@ const PortfolioAI = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full shadow-lg flex items-center justify-center z-50"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full shadow-lg flex items-center justify-center cursor-pointer z-50"
       >
         <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
