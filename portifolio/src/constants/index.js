@@ -1,4 +1,7 @@
 import imgs from '../assets/my.jpg'
+import Furni from '../assets/Furni.png'
+import Halal from '../assets/Halal.png'
+
 import {
   mobile,
   backend,
@@ -12,14 +15,29 @@ import {
   mongodb,
   git,
   figma,
-  meta,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
   threejs,
 } from "../assets";
+
+export const portfolio_data= {
+    name: "Kenenisa",
+    skills: ["React", "JavaScript", "Node.js", "Python", "AI/ML", "TypeScript"],
+    projects: [
+      { name: "E-Commerce Platform", description: "Full-stack e-commerce solution with React and Node.js" },
+      { name: "AI Chatbot", description: "Machine learning chatbot for customer service" },
+      { name: "Portfolio Website", description: "Modern responsive portfolio with 3D animations" }
+    ],
+    experience: [
+      { role: "Frontend Developer", company: "Tech Corp", duration: "2 years" },
+      { role: "AI Engineer", company: "AI Startup", duration: "1 year" }
+    ],
+    education: "Software Engineering Degree from University of Arba Minch",
+    contact: {
+      email: "KenenisaMiesob@gmail.com",
+      phone: "+251964762288",
+      linkedin: "linkedin.com/in/kenenisa"
+    },
+    about: "Passionate developer specializing in AI and web technologies with 3+ years of experience."
+}
 
 export const navLinks = [
   {
@@ -30,14 +48,15 @@ export const navLinks = [
     id: "work",
     title: "Work",
   },
+   {
+    id: "Testimonials",
+    title: "Testimonials"
+  },
   {
     id: "contact",
     title: "Contact",
   },
-  {
-    id: "Testimonials",
-    title: "Testimonials"
-  }
+ 
 ];
 
 const services = [
@@ -104,10 +123,11 @@ const experiences = [
     icon: html,
     iconBg: "#383E56",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+              " Semantic HTML5 tags",
+              " Accessibility (ARIA)",
+              " SEO optimization",
+             "  Form validation",
+              " DOM structure",
     ],
   },
   {
@@ -115,10 +135,11 @@ const experiences = [
     icon: css,
     iconBg: "#E6DEDD",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+              " Flexbox & Grid layouts",
+              " Responsive design",
+             "  CSS animations",
+              " Variables & custom properties",
+             "  Modern CSS features",
     ],
   },
   {
@@ -126,10 +147,11 @@ const experiences = [
     icon: javascript,
     iconBg: "#383E56",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+               "ES6+ features (arrow functions, destructuring)",
+               "Async/Await & Promises",
+              " DOM manipulation",
+              "API integration",
+              "Modern JavaScript patterns",
     ],
   },
   {
@@ -137,10 +159,11 @@ const experiences = [
     icon: reactjs,
     iconBg: "#E6DEDD",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+              "Functional components & hooks",
+              "State management (useState, useContext)",
+              "Component lifecycle",
+              "React Router for SPA",
+              "Performance optimization"
     ],
   },
   {
@@ -148,9 +171,25 @@ const experiences = [
     icon: tailwind,
     iconBg: "#E5DEDD",
     points: [
-      "beautiful styling library",
-      "Better"
+              "Responsive utility classes",
+              "Component styling",
+              "Custom configuration",
+              "Dark mode implementation",
+              "Efficient workflow"
     ],
+  },
+  {
+    title: "Git",
+    icon: git,
+    iconBg: "E5DEDD",
+    points: [
+              "Git & GitHub version control",
+              "RESTful API integration",
+              "Responsive web design",
+              "Cross-browser compatibility",
+              "Performance optimization",
+              "Agile development methodology"
+    ]
   }
 ];
 
@@ -183,7 +222,7 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Furniro ",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
@@ -200,7 +239,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    image: Furni,
     source_code_link: "https://github.com/",
   },
   {
@@ -221,7 +260,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
+    image: Halal,
     source_code_link: "https://github.com/",
   },
   {
@@ -242,7 +281,7 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: tripguide,
+    image: Furni,
     source_code_link: "https://github.com/",
   },
 ];
