@@ -1,6 +1,7 @@
 import imgs from '../assets/my.jpg'
 import Furni from '../assets/Furni.png'
 import Halal from '../assets/Halal.png'
+import portfolio from '../assets/portfolio.png'
 
 import {
   mobile,
@@ -235,41 +236,37 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "tailwindcs",
         color: "pink-text-gradient",
       },
     ],
     image: Furni,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/Kenenisa1/Golden-Farniture",
   },
   {
-    name: "Job IT",
+    name: "Halal Shopping",
     description:
       "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
     tags: [
       {
-        name: "react",
+        name: "html",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "css",
         color: "green-text-gradient",
-      },
-      {
-        name: "scss",
-        color: "pink-text-gradient",
-      },
+      }
     ],
     image: Halal,
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "Portfolio Website",
     description:
       "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
     tags: [
       {
-        name: "nextjs",
+        name: "React js",
         color: "blue-text-gradient",
       },
       {
@@ -277,12 +274,12 @@ const projects = [
         color: "green-text-gradient",
       },
       {
-        name: "css",
+        name: "tailwindcss",
         color: "pink-text-gradient",
       },
     ],
-    image: Furni,
-    source_code_link: "https://github.com/",
+    image: portfolio,
+    source_code_link: "https://github.com/Kenenisa1/Kenenisa-Portfolio",
   },
 ];
 
