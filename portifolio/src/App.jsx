@@ -1,5 +1,6 @@
 import {BrowserRouter } from 'react-router-dom'
 import {About, Contact,Experience,Feedbacks,Hero,Navbar, Tech, Works,StarsCanvas } from './components'
+import PortfolioAI from './components/PortifolioAI'
 
 
 function App() {
@@ -15,12 +16,12 @@ function App() {
           </div>
           <About/>
           <Experience/>
-          <Tech/>
           <Works/>
           <Feedbacks/>
           <div className='relative z-0'>
             <Contact/>
             <StarsCanvas/>
+            <PortfolioAI/>
 
           </div>
         </div>
